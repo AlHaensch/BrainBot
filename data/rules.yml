@@ -1,0 +1,34 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+# - rule: contact the support
+#   steps:
+#   - intent: contact_support
+#   - action: utter_contact_support
+
+- rule: activate ticketform
+  steps:
+  - intent: problem_vpn
+  - action: ticket_form
+  - active_loop: ticket_form
+
+
+- rule: submit ticketform
+  condition:
+  - active_loop: ticket_form
+  steps:
+  - action: ticket_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_vpnmoeglicheProbleme
+  wait_for_user_input: false
+

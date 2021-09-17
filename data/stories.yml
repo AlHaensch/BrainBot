@@ -1,0 +1,61 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_goodbye
+
+- story: VPN Problems
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: problem_vpn
+  - action: ticket_form
+  - active_loop: ticket_form
+  - intent: vpn_no_internet
+  - action: utter_vpn_no_internet
+
+- story: VPN Problems
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: problem_vpn
+  - action: ticket_form
+  - active_loop: ticket_form
+  - intent: vpn_no_internet
+  - action: utter_vpn_no_internet
+
+- story: VPN Problems
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: problem_vpn
+  - action: ticket_form
+  - active_loop: ticket_form
+  - intent: vpn_kennwort_gesperrt
+  - action: utter_vpn_kennwort_gesperrt
+
+#  - checkpoint: vpn_solution
+
+# - story: VPN Problems - vpn_no_internet
+#   steps:
+#   - checkpoint: vpn_solution
+#   - intent: vpn_no_internet
+#   - action: utter_vpn_no_internet
+
+# - story: VPN Problems - vpn_rdp_Problem
+#   steps:
+#   - checkpoint: vpn_solution
+#   - intent: vpn_no_internet
+#   - action: utter_vpn_no_internet
+
+# - story: VPN Problems - vpn_kennwort_gesperrt
+#   steps:
+#   - checkpoint: vpn_solution
+#   - intent: vpn_kennwort_gesperrt
+#   - action: utter_vpn_kennwort_gesperrt
+

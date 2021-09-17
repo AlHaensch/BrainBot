@@ -1,0 +1,110 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- need_something_else:
+    use_entities: true
+- vpn_no_internet:
+    use_entities: true
+- problem_vpn:
+    use_entities: true
+- vpn_rdp_Problem:
+    use_entities: true
+- vpn_kennwort_gesperrt:
+    use_entities: true
+- contact_support:
+    use_entities: true
+entities: []
+slots:
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: Hi, ich bin der BrainBot. Wie kann ich dir helfen?
+  utter_goodbye:
+  - text: Bye, bis zum nächsten Mal!
+  utter_HowToHelp:
+  - text: Alles klar, wobei ich kann dir helfen?
+  utter_ask_email:
+  - text: Für die weitere Bearbeitung benötige ich bitte deine E-Mailadresse
+  utter_ask_name:
+  - text: Wie ist dein Name?
+  utter_submit:
+  - text: Vielen Dank!
+  utter_slots_values:
+  - text: Dein name ist {name} und deine email lautet {email}
+  utter_vpnmoeglicheProbleme:
+  - buttons:
+    - payload: /vpn_no_internet
+      title: Internet nicht verfügbar
+    - payload: /vpn_rdp_Problem
+      title: 'RDP: Gerät nicht eingeschaltet'
+    - payload: /vpn_kennwort_gesperrt
+      title: Kennwort gesperrt
+    - payload: /contact_support
+      title: Sonstiges (Ticket eröffnen)
+    text: |-
+      Du hast also Probleme mit dem VPN. Nach meiner Erfahrung liegt es an einem der folgenden Gründe: 
+
+       1. Das verwendete Gerät hat keine Verbindung zum Internet 
+
+       2. Beim arbeiten mit einer RDP-Verbindung, ist das Gerät (PC / Notebook) im Büro ggf. nicht eingeschaltet. 
+
+       3. Kennwort gesperrt. 
+
+       Bitte wähle eines der Themen aus, damit ich dir weiterhelfen kann.
+  utter_vpn_no_internet:
+  - text: |
+      Bitte überprüfe, ob das Notebook oder der PC mit dem Internet verbunden ist.
+      Versuche mal, die Braintec-Website zu öffnen.
+      Kann diese nicht geöffnet werden, prüfen bitte deine WLAN bzw. LAN Verbindung.
+      Solltest du über LAN verbunden sein, kontrolliere bitte die Anzeigen an deinem Router. 
+      Leuchten diese durchgängig GRÜN, starte bitte den Router neu.
+      Blinken diese ROT, dann wende dich an deinen Provider.
+      Bist du über WLAN verbunden, prüfen bitte die Verbindung an deinem Notebook und verbinde dich ggf. neu.
+  utter_vpn_rdp_problem:
+  - text: |
+      Bitte rufe in deinem Büro an, so dass geprüft werden kann, ob das Gerät eingeschaltet ist. Wenn es ausgeschaltet ist, bitte das Gerät, einschalten zu lassen. 
+      Ist das Gerät eingeschaltet, muss für die Störungsbeseitigung ein Techniker hinzugezogen werden.
+  utter_vpn_kennwort_gesperrt:
+  - text: |
+      Sollte das Kennwort gesperrt sein, kann dies nur durch einen Techniker behoben werden. 
+  utter_contact_support:
+  - text: Ich habe für dich ein Ticket erstellt. Ein Techniker wird sich schnellstmöglich bei dir melden. Kann ich dir sonst irgendwie helfen?
+actions:
+- action_fallback
+forms:
+  ticket_form:
+    required_slots:
+      email:
+      - type: from_text
+      name:
+      - type: from_text
+e2e_actions: []

@@ -1,0 +1,114 @@
+version: "2.0"
+nlu:
+- intent: mood_great
+  examples: |
+    - mir gehts gut
+    - alles gut bei mir
+- intent: greet
+  examples: |
+    - hey
+    - hallo
+    - hi
+    - mahlzeit
+    - wie gehts
+    - was geht
+    - morgen
+    - moin
+    - huhu
+    - Moin
+    - Guten Morgen
+    - Hallo lieber bot
+    - Guten Abend
+    - Guten Tag
+    - Hallöchen
+    - Na
+    - Servus
+    - Was geht
+    - Hallo
+    - was ghet
+    - hello
+- intent: goodbye
+  examples: |
+    - bye
+    - tschüss
+    - bis dann
+    - bis später
+    - ciao
+    - tschau
+    - danke
+    - machs gut
+    - adios
+    - alles gute
+    - auf Wiedersehen
+    - bis bald
+    - hau rein
+    - hau rein keule
+- intent: affirm
+  examples: |
+    - ja
+    - korrekt
+    - stimmt
+    - genau
+    - machen wir so
+    - yea
+    - ohja
+    - ohh ja
+    - jup
+    - klingt gut
+    - habe ich
+    - hab ich
+    - ja, hat es
+- intent: deny
+  examples: |
+    - no
+    - nein
+    - ne
+    - nee
+    - nein danke
+    - ohh nein
+    - falsch
+    - etwas anderes
+    - habe ich nicht
+    - hab ich nicht
+
+- intent: problem_vpn
+  examples: |
+    - Ich habe Probleme mit dem VPN
+    - Mein VPN funktioniert nicht
+    - VPN geht nicht
+    - VPN ist kaputt
+    - meine Verschlüsselte Verbindung geht nicht mehr
+    - Ich kann mich nicht mit VPN verbinden
+    - Die Verbindung zum Firmennetzwerk ist nicht möglich
+    - Die Verbindung mit VPN funktionier nicht
+    - Ich habe keinen VPN-Zugang zum Server…
+    - ich kann meine VPN nicht anschließen
+    - ich aknn meine VPN nicht anschließen
+    - Ich kann meine VPN anschließen
+    - ich kann mich nciht mti vpn verbinden
+    - ich habe Probleme, mcih mit der VPN zu verbinden
+    - ich habe probleme mit der vpn
+- intent: vpn_no_internet
+  examples: |
+    - Das Geraet hat keinen Zugang zum Internet
+    - Die Internetverbindung meines Gerätes funktioniert nicht
+- intent: vpn_rdp_Problem
+  examples: |
+    - Das Geraet im Büro ist ausgeschaltet
+    - Das RDP-gerät im Büro reagiert nicht
+    - Ich habe kein Zugriff zum RDP-gerät
+- intent: vpn_kennwort_gesperrt
+  examples: |
+    - Mein Kennwort für VPN ist gesperrt
+    - das Kennwort für VPN funktioniert nicht
+    - Mein VPN-Passwort geht nicht mehr
+
+- intent: contact_support
+  examples: |
+    - Ich benötige Hilfe durch einen Mitarbeiter
+    - Kann ich mit einem Menschen sprechen?
+    - Du kannst mir nicht helfen
+    - Ich brauche Hilfe durch den Support
+    - Kannst du mich an einen Mitarbeiter weiterleiten?
+    - ich Benötige Unterschützung durch einen Techniker
+    - Bitte leite mich an einen Techniker
